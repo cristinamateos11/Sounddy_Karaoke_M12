@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
 import SpeechRecognition, { useSpeechRecognition } from "react-speech-recognition";
 
-import './App.css';
-
 const App = () => {
   const { transcript, listening, resetTranscript, browserSupportsSpeechRecognition, browserSupportsContinuousListening } = useSpeechRecognition({
   });
@@ -18,26 +16,28 @@ const App = () => {
     }
   }, []);
 
-  // if (browserSupportsContinuousListening) {
-  //   SpeechRecognition.startListening({ continuous: true })
-  // } else {
-  //   <p>Your browser doesn't support continuous listening</p>
-  //   console.log("ADIOSSS ");
-  // }
+  if (browserSupportsContinuousListening) {
+    SpeechRecognition.startListening({ continuous: true })
+  } else {
+    <span>Your browser doesn't support continuous listening</span>
+  }
 
   /* Obtener archivo LRC */
   useEffect(() => {
     fetch("acdc.txt")
       .then(response => response.text())
       .then(letra => setLetra(letra))
+    /// .catch(error => console.log(error));
   })
+  // console.log(letra);
 
-
-  /* Función que compara letra con transcripción */
+  // Función para comparar la transcripción con la letra del archivo LRC
   const compareLyrics = (transcript, letra) => {
-    const cleanLyrics = letra.replace(/\[.*?\]/g, ""); // Elimina etiquetas de tiempo
+    const cleanLyrics = letra.replace(/\[.*?\]/g, ""); // Elimina las etiquetas de tiempo
+    // console.log(cleanLyrics);
 
-    const cleanLineBreaks = cleanLyrics.split("\n").join(""); // Quita saltos de linia
+    const cleanLineBreaks = cleanLyrics.split("\n").join(""); // Quitar saltos de linia
+    //console.log(cleanBlankSpaces);
 
     const wordsInLyrics = cleanLineBreaks.toLowerCase().split(" ");
     console.log(wordsInLyrics);
@@ -60,7 +60,7 @@ const App = () => {
   const num = compareLyrics(transcript, letra);
   console.log(num);
 
-  /* Función Contador de palabras coincidentes */
+  // Función para actualizar el contador de palabras coincidentes
   const updateWordCount = () => {
     if (letra && transcript) {
       const count = compareLyrics(transcript, letra);
@@ -72,10 +72,13 @@ const App = () => {
     setWordCount(0);
   }
 
+  if (!browserSupportsSpeechRecognition) {
+    return <span>Your browser doesn't support speech to text</span>
+  }
+
 
   return (
     <div>
-      <p className={!browserSupportsContinuousListening ? SpeechRecognition.startListening({ continuous: true }) : 'hidden'}>Your browser doesn't support continuous listening</p>
       <p>Microphone: {listening ? 'on' : 'off'}</p>
       <button onClick={SpeechRecognition.startListening}>Start</button>
       <button onClick={SpeechRecognition.stopListening}>Stop</button>
