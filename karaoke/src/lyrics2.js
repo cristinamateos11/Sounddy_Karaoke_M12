@@ -4,6 +4,8 @@ import { useState, useEffect, useRef } from "react";
 
 const Lyrics2 = () => {
 
+    const [letra, setLetra] = useState();
+
     // Obtener archivo LRC
     const lyrics = LRC;
     //console.log(lyrics);
@@ -38,16 +40,16 @@ const Lyrics2 = () => {
 
 
     // Mantener audio y actualización del tiempo
-    useEffect(() => {
-        const audio = audioRef.current;
-        console.log(audio);
+    // useEffect(() => {
+    //     const audio = audioRef.current;
+    //     console.log(audio);
 
-        audio.addEventListener('timeupdate', obtenerTiempoAudio);
+    //     audio.addEventListener('timeupdate', obtenerTiempoAudio);
 
-        return () => {
-            audio.removeEventListener('timeupdate', obtenerTiempoAudio);
-        };
-    }, []);
+    //     // return () => {
+    //     //     audio.removeEventListener('timeupdate', obtenerTiempoAudio);
+    //     // };
+    // }, []);
 
 
     // Transformar tiempo del audio en formato "minutos:segundos.milisegundos" = "01:15.350"
@@ -121,23 +123,33 @@ const Lyrics2 = () => {
         let index = obtenerTiempoLRC(formattedTime, lyrics);
         //console.log(index);
         console.log(index.line);
+
+        if (!index.line == "") {
+            setLetra(index.line);
+        }
+
+        
         //console.log(`Current time: [${formattedTime}], Current index: ${index}`);
         return index.line;
         //return { minutesAudio, secondsAudio };
     };
 
 
+
+
     return (
         <>
             <div className="audio-container">
                 <h2>Canción:</h2>
-                <audio src="audio/Back_In_Black.mp3" ref={audioRef}></audio>
+                <audio src="audio/Back_In_Black.mp3" ref={audioRef} onTimeUpdate={obtenerTiempoAudio}></audio>
                 <div className="audio-controls">
                     <button onClick={playAudio}>Play</button>
                     <button onClick={stopAudio}>Pause</button>
                     <button onClick={resetAudio}>Reset</button>
                 </div>
             </div>
+
+            <p> {letra} </p>
             
             <div className="lyrics-container">
                 {/* {lyrics} */}
