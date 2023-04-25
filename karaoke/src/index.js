@@ -1,12 +1,17 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import AudioPlayer from './AudioPlayer';
+import ReactDOM from 'react-dom/client';
+import './index.css';
+import App from './App';
+//import Lyrics from './lyrics';
+import Lyrics2 from './lyrics2';
 
-
-ReactDOM.render(
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
   <React.StrictMode>
-    <AudioPlayer />
-  </React.StrictMode>,
-  document.getElementById('root')
+    <App />
+    {/*<Lyrics/>*/}
+    <Lyrics2/>
+  </React.StrictMode>
 );
+
 

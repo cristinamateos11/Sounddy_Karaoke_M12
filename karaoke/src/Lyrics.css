@@ -1,0 +1,26 @@
+.lyrics-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.audio-controls {
+    margin-bottom: 2rem;
+}
+
+.audio-controls button {
+    margin-right: 1rem;
+}
+
+.lyrics {
+    width: 50%;
+    text-align: center;
+}
+
+.lyrics div {
+    margin-bottom: 1rem;
+}
+
+.lyrics div.highlighted {
+    font-weight: bold;
+}
