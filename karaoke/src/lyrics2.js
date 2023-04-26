@@ -1,6 +1,6 @@
-import { LRC } from "./data";
+//import { LRC } from "./data";
 import { useState, useEffect, useRef } from "react";
-
+import { LRC } from "./taylor";
 
 const Lyrics2 = () => {
 
@@ -100,7 +100,7 @@ const Lyrics2 = () => {
         <>
             <div className="audio-container">
                 <h2>Canción:</h2>
-                <audio src="audio/Back_In_Black.mp3" ref={audioRef} onTimeUpdate={obtenerTiempoAudio}></audio>
+                <audio src="audio/tomp3.cc - You Belong With Me Taylors Version.mp3" ref={audioRef} onTimeUpdate={obtenerTiempoAudio}></audio>
                 <div className="audio-controls">
                     <button onClick={playAudio}>Play</button>
                     <button onClick={stopAudio}>Pause</button>

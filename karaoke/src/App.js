@@ -13,11 +13,11 @@ const App = () => {
 
   useEffect(() => {
     if (SpeechRecognition.browserSupportsSpeechRecognition()) {
-      SpeechRecognition.startListening(); // inicia el reconocimiento de voz
+      SpeechRecognition.startListening(); 
     }
   }, []);
 
-  if (browserSupportsContinuousListening) {
+  if (browserSupportsContinuousListening || browserSupportsSpeechRecognition) {
     SpeechRecognition.startListening({ continuous: true })
   } else {
     <span>Your browser doesn't support continuous listening</span>
@@ -35,9 +35,9 @@ const App = () => {
 
   // Función para comparar la transcripción con la letra del archivo LRC
   const compareLyrics = (transcript, letra) => {
-    const cleanLyrics = letra.replace(/\[.*?\]/g, ""); // Elimina las etiquetas de tiempo
+    const cleanLyrics = letra.replace(/\[.*?\]/g, "");
 
-    const cleanLineBreaks = cleanLyrics.split("\n").join(""); // Quitar saltos de linia
+    const cleanLineBreaks = cleanLyrics.split("\n").join("");
 
     wordsInLyrics = cleanLineBreaks.toLowerCase().split(" ");
 
@@ -75,8 +75,6 @@ const App = () => {
   const deleteScore = () => {
     setWordCount(0);
   }
-
-  
 
 
   return (
