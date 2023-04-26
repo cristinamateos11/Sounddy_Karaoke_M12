@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import SpeechRecognition, { useSpeechRecognition } from "react-speech-recognition";
-import { LRC } from "./data";
 
 const App = () => {
   const { transcript, listening, resetTranscript, browserSupportsSpeechRecognition, browserSupportsContinuousListening } = useSpeechRecognition({
@@ -9,7 +8,6 @@ const App = () => {
   const [wordCount, setWordCount] = useState(0);
   const [percentatge, setpercentatge] = useState(0);
   
-
   /* Speech Recognition START */
   SpeechRecognition.startListening({ continuous: true })
 
@@ -24,7 +22,6 @@ const App = () => {
   } else {
     <span>Your browser doesn't support continuous listening</span>
   }
-
 
   /* Obtener archivo LRC */
   useEffect(() => {
@@ -79,15 +76,13 @@ const App = () => {
     setWordCount(0);
   }
 
-  if (!browserSupportsSpeechRecognition) {
-    return <span>Your browser doesn't support speech to text</span>
-  }
+  
 
 
   return (
     <>
       <div>
-        <p>Microphone: {listening ? 'on' : 'off'}</p>
+        <h2>Microphone: {listening ? 'on' : 'off'}</h2>
         <button onClick={SpeechRecognition.startListening}>Start</button>
         <button onClick={SpeechRecognition.stopListening}>Stop</button>
         <button onClick={resetTranscript}>Reset</button>
@@ -99,10 +94,6 @@ const App = () => {
         <p>Palabras coincidentes: {wordCount}</p>
 
         <p>Porcentaje de aciertos: {percentatge}%</p>
-      </div>
-
-      <div>
-       {/* lrc={LRC}*/}
       </div>
     </>
   );
