@@ -8,7 +8,6 @@ const Lyrics2 = () => {
 
     // Obtener archivo LRC
     const lyrics = LRC;
-    //console.log(lyrics);
 
     // Obtener referencia del audio
     const audioRef = useRef();
@@ -39,26 +38,12 @@ const Lyrics2 = () => {
     };
 
 
-    // Mantener audio y actualización del tiempo
-    // useEffect(() => {
-    //     const audio = audioRef.current;
-    //     console.log(audio);
-
-    //     audio.addEventListener('timeupdate', obtenerTiempoAudio);
-
-    //     // return () => {
-    //     //     audio.removeEventListener('timeupdate', obtenerTiempoAudio);
-    //     // };
-    // }, []);
-
-
     // Transformar tiempo del audio en formato "minutos:segundos.milisegundos" = "01:15.350"
     const formatTime = (time) => {
         const minutes = Math.floor(time / 60).toString().padStart(2, "0");
         const seconds = Math.floor(time % 60).toString().padStart(2, "0");
         const milliseconds = Math.floor((time % 1) * 1000).toString().padStart(3, "0");
         return `${minutes}:${seconds}.${milliseconds}`;
-        //return { minutes, seconds, milliseconds };
     };
 
 
@@ -85,26 +70,13 @@ const Lyrics2 = () => {
                 const secondsLRC = parseInt(timeMatch[2], 10);
 
                 if (formattedTime.minutes === minutesLRC && formattedTime.seconds === secondsLRC) {
-                    //tiempoLRC = { minutes: minutesLRC, seconds: secondsLRC, line: line };
                     tiempoLRC = { minutes: minutesLRC, seconds: secondsLRC, line: line.replace(/\[[^\]]*\]/g, '') };
                     break;
                 }
             }
         }
-        // console.log('Minutos y segundos de LRC');
-        // console.log(tiempoLRC.minutes);
-        // console.log(tiempoLRC.seconds);
-        // console.log(tiempoLRC.line);
         return tiempoLRC;
     };
-
-
-    // Probar obtenerTiempoLRC
-    // const tiempoLRC = obtenerTiempoLRC('00:31', lyrics);
-    // console.log(tiempoLRC); // imprime objeot con min,sec,line
-    // console.log(tiempoLRC.minutes); // 0
-    // console.log(tiempoLRC.seconds); //  31
-    // console.log(tiempoLRC.line); // linia
 
 
     // Obtiene minutos, segundos y linea del AUDIO
@@ -113,28 +85,15 @@ const Lyrics2 = () => {
         const formattedTime = formatTime(currentTime);
         const [minutesStr, secondsStr] = formattedTime.split(":");
 
-        const minutesAudio = parseInt(minutesStr, 10);
-        const secondsAudio = parseInt(secondsStr, 10);
-
-        // console.log('Minutos y segundos de AUDIO');
-        // console.log(minutesAudio);
-        // console.log(secondsAudio);
-
         let index = obtenerTiempoLRC(formattedTime, lyrics);
-        //console.log(index);
         console.log(index.line);
 
         if (!index.line == "") {
             setLetra(index.line);
         }
 
-        
-        //console.log(`Current time: [${formattedTime}], Current index: ${index}`);
         return index.line;
-        //return { minutesAudio, secondsAudio };
     };
-
-
 
 
     return (
@@ -149,11 +108,8 @@ const Lyrics2 = () => {
                 </div>
             </div>
 
-            <p> {letra} </p>
-            
             <div className="lyrics-container">
-                {/* {lyrics} */}
-                <button onClick={obtenerTiempoAudio}>Obtener karaoke</button>
+                <p> {letra} </p>
             </div>
         </>
 
