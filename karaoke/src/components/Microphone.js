@@ -6,17 +6,18 @@ const App = () => {
   });
   const [letra, setLetra] = useState("");
   const [wordCount, setWordCount] = useState(0);
+  const [percentatge, setpercentatge] = useState(0);
 
   /* Speech Recognition START */
   SpeechRecognition.startListening({ continuous: true })
 
   useEffect(() => {
     if (SpeechRecognition.browserSupportsSpeechRecognition()) {
-      SpeechRecognition.startListening(); // inicia el reconocimiento de voz
+      SpeechRecognition.startListening();
     }
   }, []);
 
-  if (browserSupportsContinuousListening) {
+  if (browserSupportsContinuousListening || browserSupportsSpeechRecognition) {
     SpeechRecognition.startListening({ continuous: true })
   } else {
     <span>Your browser doesn't support continuous listening</span>
@@ -27,41 +28,33 @@ const App = () => {
     fetch("acdc.txt")
       .then(response => response.text())
       .then(letra => setLetra(letra))
-
-
-    /// .catch(error => console.log(error));
   })
-  // console.log(letra);
+
+  let wordsInTranscript = 0;
+  let wordsInLyrics = 0;
 
   // Función para comparar la transcripción con la letra del archivo LRC
   const compareLyrics = (transcript, letra) => {
-    const cleanLyrics = letra.replace(/\[.*?\]/g, ""); // Elimina las etiquetas de tiempo
-    // console.log(cleanLyrics);
+    const cleanLyrics = letra.replace(/\[.*?\]/g, "");
 
-    const cleanLineBreaks = cleanLyrics.split("\n").join(""); // Quitar saltos de linia
-    //console.log(cleanBlankSpaces);
+    const cleanLineBreaks = cleanLyrics.split("\n").join("");
 
-    const wordsInLyrics = cleanLineBreaks.toLowerCase().split(" ");
-    console.log(wordsInLyrics);
+    wordsInLyrics = cleanLineBreaks.toLowerCase().split(" ");
 
-    const wordsInTranscript = transcript.toLowerCase().split(" ");
-    console.log(wordsInTranscript);
+    wordsInTranscript = transcript.toLowerCase().split(" ");
 
     let count = 0;
 
     for (let i = 1; i < wordsInTranscript.length; i++) {
-      console.log(wordsInTranscript.length);
       if (wordsInLyrics.includes(wordsInTranscript[i])) {
-        console.log(wordsInTranscript[i]);
-        console.log(wordsInLyrics[i]);
         count++;
-        console.log(count);
       }
     }
     return count;
   };
   const num = compareLyrics(transcript, letra);
   console.log(num);
+
 
   // Función para actualizar el contador de palabras coincidentes
   const updateWordCount = () => {
@@ -71,27 +64,37 @@ const App = () => {
     }
   };
 
+  // Funcion que hace el porcentage
+  const percent = () => {
+    const perAciertos = ((wordsInLyrics.length - wordCount) * 100) / wordsInLyrics.length;
+    const perTotal = Math.round(100 - perAciertos);
+    setpercentatge(perTotal);
+  }
+
+  // Funcion que borra la puntuacion
   const deleteScore = () => {
     setWordCount(0);
   }
 
-  if (!browserSupportsSpeechRecognition) {
-    return <span>Your browser doesn't support speech to text</span>
-  }
 
   return (
     <>
       <div>
-        <p>Microphone: {listening ? 'on' : 'off'}</p>
+        <h2>Microphone: {listening ? 'on' : 'off'}</h2>
         <button onClick={SpeechRecognition.startListening}>Start</button>
         <button onClick={SpeechRecognition.stopListening}>Stop</button>
         <button onClick={resetTranscript}>Reset</button>
         <p>{transcript}</p>
         <button onClick={updateWordCount}>Obtener Puntuación</button>
         <button onClick={deleteScore}>Borrar Puntuación</button>
+
+        <button onClick={percent}>Obtener Porcentaje</button>
         <p>Palabras coincidentes: {wordCount}</p>
+
+        <p>Porcentaje de aciertos: {percentatge}%</p>
       </div>
     </>
   );
 };
+
 export default App;

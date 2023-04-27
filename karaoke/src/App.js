@@ -7,13 +7,13 @@ const App = () => {
   const [letra, setLetra] = useState("");
   const [wordCount, setWordCount] = useState(0);
   const [percentatge, setpercentatge] = useState(0);
-  
+
   /* Speech Recognition START */
   SpeechRecognition.startListening({ continuous: true })
 
   useEffect(() => {
     if (SpeechRecognition.browserSupportsSpeechRecognition()) {
-      SpeechRecognition.startListening(); 
+      SpeechRecognition.startListening();
     }
   }, []);
 
