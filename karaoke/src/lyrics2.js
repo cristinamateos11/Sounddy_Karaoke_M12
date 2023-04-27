@@ -1,5 +1,5 @@
 //import { LRC } from "./data";
-import { useState, useEffect, useRef } from "react";
+import { useState, useRef } from "react";
 import { LRC } from "./taylor";
 
 const Lyrics2 = () => {
@@ -83,12 +83,10 @@ const Lyrics2 = () => {
     const obtenerTiempoAudio = () => {
         const currentTime = audioRef.current.currentTime;
         const formattedTime = formatTime(currentTime);
-        const [minutesStr, secondsStr] = formattedTime.split(":");
-
         let index = obtenerTiempoLRC(formattedTime, lyrics);
         console.log(index.line);
 
-        if (!index.line == "") {
+        if (index.line !== "") {
             setLetra(index.line);
         }
 

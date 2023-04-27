@@ -1,8 +1,5 @@
 import React, { useState, useEffect } from "react";
 import SpeechRecognition, { useSpeechRecognition } from "react-speech-recognition";
-import { Lrc, LrcLine, useRecoverAutoScrollImmediately } from "react-lrc";
-import { LRC } from "./data";
-
 
 const App = () => {
   const { transcript, listening, resetTranscript, browserSupportsSpeechRecognition, browserSupportsContinuousListening } = useSpeechRecognition({
@@ -84,20 +81,16 @@ const App = () => {
 
   return (
     <>
-    <div>
-      <p>Microphone: {listening ? 'on' : 'off'}</p>
-      <button onClick={SpeechRecognition.startListening}>Start</button>
-      <button onClick={SpeechRecognition.stopListening}>Stop</button>
-      <button onClick={resetTranscript}>Reset</button>
-      <p>{transcript}</p>
-      <button onClick={updateWordCount}>Obtener Puntuación</button>
-      <button onClick={deleteScore}>Borrar Puntuación</button>
-      <p>Palabras coincidentes: {wordCount}</p>
-    </div>
-
-    <div>
-      lrc={LRC}
-    </div>
+      <div>
+        <p>Microphone: {listening ? 'on' : 'off'}</p>
+        <button onClick={SpeechRecognition.startListening}>Start</button>
+        <button onClick={SpeechRecognition.stopListening}>Stop</button>
+        <button onClick={resetTranscript}>Reset</button>
+        <p>{transcript}</p>
+        <button onClick={updateWordCount}>Obtener Puntuación</button>
+        <button onClick={deleteScore}>Borrar Puntuación</button>
+        <p>Palabras coincidentes: {wordCount}</p>
+      </div>
     </>
   );
 };
