@@ -1,5 +1,5 @@
 <h1 align="center"> 
-   <img src="./karaoke/public/img/logoRecortadoPNG.png"> 
+   <img src="./karaoke/public/logoRecortadoPNG.png"> 
 </h1>
  
 ## Idea :bulb:
