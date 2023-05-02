@@ -21,7 +21,7 @@ const App = () => {
     SpeechRecognition.startListening({ continuous: true })
   } else {
     <span>Your browser doesn't support continuous listening</span>
-  }
+  } 
 
   /* Obtener archivo LRC */
   useEffect(() => {
