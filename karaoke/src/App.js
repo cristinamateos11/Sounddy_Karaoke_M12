@@ -25,7 +25,7 @@ const App = () => {
 
   /* Obtener archivo LRC */
   useEffect(() => {
-    fetch("acdc.txt")
+    fetch("taylor.txt")
       .then(response => response.text())
       .then(letra => setLetra(letra))
   })
@@ -76,6 +76,23 @@ const App = () => {
     setWordCount(0);
   }
 
+  // Funcion que devuelve una frase segun el porcentaje obtenido
+  const frasesPuntuacion = (porcentaje) => {
+    let frase = '';
+    if (porcentaje >= 90) {
+      frase = '¡Eres un/a crack! 🤩🎤🎶';
+    } else if (porcentaje >= 70) {
+      frase = 'Muy bien, sigue así 👍🎤🎶';
+    } else if (porcentaje >= 50) {
+      frase = 'No está mal, pero puedes hacerlo mejor 🤔🎤🎶';
+    } else if (porcentaje >= 30) {
+      frase = 'Necesitas practicar más 🙄🎤🎶';
+    } else {
+      frase = 'Dedícate a otra cosa 😒🎤🎶';
+    }
+    return frase;
+  }
+
 
   return (
     <>
@@ -92,6 +109,7 @@ const App = () => {
         <p>Palabras coincidentes: {wordCount}</p>
 
         <p>Porcentaje de aciertos: {percentatge}%</p>
+        <p>{frasesPuntuacion(percentatge)}</p>
       </div>
     </>
   );

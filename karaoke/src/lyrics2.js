@@ -1,6 +1,6 @@
-//import { LRC } from "./data";
+//import { LRC } from "./acdc";
 import { useState, useRef } from "react";
-import { LRC } from "./taylor";
+import { LRC } from "./lyrics/taylor";
 
 const Lyrics2 = () => {
 
@@ -58,7 +58,7 @@ const Lyrics2 = () => {
     // Obtiene minutos, segundos y linea del archivo LRC
     const obtenerTiempoLRC = (currentTime, lyrics) => {
         const formattedTime = formatTimeLRC(currentTime);
-        const lines = lyrics.split("\n"); // separar cada linia
+        const lines = lyrics.split("\n");
         let tiempoLRC = { minutes: 0, seconds: 0, line: "" };
 
         for (let i = 0; i < lines.length; i++) {
@@ -98,7 +98,7 @@ const Lyrics2 = () => {
         <>
             <div className="audio-container">
                 <h2>Canción:</h2>
-                <audio src="audio/tomp3.cc - You Belong With Me Taylors Version.mp3" ref={audioRef} onTimeUpdate={obtenerTiempoAudio}></audio>
+                <audio src="audio/you_belong_with_me.mp3" ref={audioRef} onTimeUpdate={obtenerTiempoAudio}></audio>
                 <div className="audio-controls">
                     <button onClick={playAudio}>Play</button>
                     <button onClick={stopAudio}>Pause</button>
