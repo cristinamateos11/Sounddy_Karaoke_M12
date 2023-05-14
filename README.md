@@ -2,14 +2,29 @@
    <img src="./karaoke/public/logoRecortadoPNG.png"> 
 </h1>
  
-## Idea :bulb:
+## 🎯 La Idea
 
-Sounddy es un proyecto de karaoke en línea, construido con React y la librería de Speech Recognition. No solo se limita a mostrarte la letra de la canción: también te escucha cantar y te puntúa según tu precisión.
+Aquesta aplicació web de karaoke et permet cantar les teves cançons favorites d'una manera divertida i fàcil. Pots triar entre una àmplia varietat de cançons i decidir si vols cantar amb la versió instrumental o amb la versió amb lletra.
 
+## 🚀 Funcionament
 
-## ¿Cómo funciona? :hammer:
+1. Navega per la nostra àmplia llista de cançons disponibles.
+2. Tria la teva cançó preferida.
+3. Decideix si vols la versió instrumental o la versió amb lletra.
+4. ¡Comença a cantar al ritme de la música!
 
-El proceso es sencillo: el sistema escucha tu voz mientras cantas, utilizando la tecnología de reconocimiento de voz. Luego, compara lo que dijiste con la letra original de la canción y te da puntos por cada palabra que hayas acertado.
+## 🔮 Millores futures
 
-Al final, obtendrás una puntuación final de los aciertos.
+Estem treballant per a fer que la nostra aplicació sigui encara millor! Algunes de les millores que tenim en ment són:
+
+- Que la lletra es vagi pintant a mesura que la música avança.
+- Selecció de cançons per idiomes per a facilitar la cerca de cançons.
+
+## 👨‍💻 Desenvolupadors del projecte
+
+Aquest projecte ha estat possible gràcies a l'esforç i dedicació del nostre equip de desenvolupadors:
+
+- Cristina Mateos Paez
+- Aleix Damora
+- Ivan Espinola
 
