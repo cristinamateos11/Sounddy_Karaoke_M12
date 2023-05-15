@@ -18,7 +18,8 @@ Aquesta aplicació web de karaoke et permet cantar les teves cançons preferides
 Estem treballant per a fer que la nostra aplicació sigui encara millor! Algunes de les millores que tenim en ment són:
 
 - Que la lletra es vagi pintant a mesura que la música avança.
-- Selecció de cançons per idiomes per a facilitar la cerca de cançons.
+- Selecció de cançons per idiomes.
+- Grabació de pista d'àudio per poder compartir amb amics.
 
 ## 👨‍💻 Desenvolupadors del projecte
 
