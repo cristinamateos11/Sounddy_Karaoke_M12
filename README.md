@@ -25,7 +25,7 @@ Estem treballant per a fer que la nostra aplicació sigui encara millor! Algunes
 
 Aquest projecte ha estat possible gràcies a l'esforç i dedicació del nostre equip de desenvolupadors:
 
-- Cristina Mateos Paez
 - Aleix Damora
+- Cristina Mateos
 - Ivan Espinola
 
