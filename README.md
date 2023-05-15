@@ -4,7 +4,7 @@
  
 ## 🎯 La Idea
 
-Aquesta aplicació web de karaoke et permet cantar les teves cançons favorites d'una manera divertida i fàcil. Pots triar entre una àmplia varietat de cançons i decidir si vols cantar amb la versió instrumental o amb la versió amb lletra.
+Aquesta aplicació web de karaoke et permet cantar les teves cançons preferides d'una manera divertida i fàcil. Pots triar entre una àmplia varietat de cançons i decidir si vols cantar amb la versió instrumental o amb la versió amb lletra.
 
 ## 🚀 Funcionament
 
@@ -13,7 +13,7 @@ Aquesta aplicació web de karaoke et permet cantar les teves cançons favorites 
 3. Decideix si vols la versió instrumental o la versió amb lletra.
 4. ¡Comença a cantar al ritme de la música!
 
-## 🔮 Millores futures
+## 🔮 Futures millores
 
 Estem treballant per a fer que la nostra aplicació sigui encara millor! Algunes de les millores que tenim en ment són:
 
