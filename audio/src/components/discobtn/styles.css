@@ -1,0 +1,33 @@
+.disco-container {
+    position: relative;
+    transition: background-color 2s ease-in-out;
+}
+
+.disco-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    border: none;
+    border-radius: 50%;
+    padding: 10px 12px;
+    cursor: pointer;
+    position: fixed;
+    top: 20px;
+    left: 1%;
+    transition: background-color 0.5s ease;
+}
+
+.disco-button:hover {
+    background-color: #ddd;
+}
+
+.disco-button:active {
+    background-color: #bbb;
+    transition: background-color 0.2s ease;
+}
+
+.disco-button svg {
+    width: 35px;
+    height: 35px;
+}

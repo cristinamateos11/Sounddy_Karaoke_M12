@@ -1,0 +1,46 @@
+.hiden {
+    display: none !important;
+}
+.stars {
+    display: flex;
+    gap: 15px;
+    font-size: 30px;
+    color: #d4d4d4;
+    border: solid white 5px;
+    padding: 15px 10px 10px 10px;
+    border-radius: 49px;
+    width: 215px;
+    align-items: center;
+    background: #f5f5f5;
+    justify-content: space-around;
+}
+/* .popup {
+    height: 10%;
+    width: 100%;
+    position: absolute;
+    top: 5%;
+    left: 26.5%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+} */
+.popup {
+    position: fixed;
+    top: 5%; 
+    left: 50%; 
+    transform: translateX(-50%);
+    width: 50%; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center; 
+}
+.st-ok {
+    color: #ffd400 !important;
+}
+.div-star {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
