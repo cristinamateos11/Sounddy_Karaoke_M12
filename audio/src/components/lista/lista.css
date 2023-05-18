@@ -1,0 +1,49 @@
+li.songContainer {
+    background-color: white;
+    margin: 10px;
+    width: 92%;
+    display: flex;
+    gap: 16px;
+    padding: 10px;
+    align-items: center;
+    border-radius: 22px;
+}
+.player {
+    font-size: 29px;
+    cursor: pointer;
+}
+.lista {
+    position: absolute;
+    right: 10px;
+    padding-bottom: 140px;
+    width: 22%;
+}
+.actions {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+}
+.info-list {
+    width: 68%;
+}
+.list-ul {
+    position: absolute;
+    right: -500px;
+    transition: 1s;
+    width: 90%;
+    padding-bottom: 140px;
+}
+.trans-ul {
+    right: 10px;
+}
+.btn-list {
+    position: fixed;
+    left: 5%;
+    top: 2%;
+    padding: 10px 12px;
+    border-radius: 53px;
+    border: white;
+    cursor: pointer;
+    background: white;
+    font-size: 28px;
+}
