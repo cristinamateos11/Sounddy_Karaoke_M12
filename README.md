@@ -1,5 +1,5 @@
 <h1 align="center"> 
-   <img src="./karaoke/public/logoRecortadoPNG.png"> 
+   <img src="logoGrandeReflejo.png"> 
 </h1>
  
 ## 🎯 La Idea
